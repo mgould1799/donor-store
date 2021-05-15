@@ -3,6 +3,8 @@ version: "3.9"
 services:
   db:
     image: mysql:5.7
+    ports:
+      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
     restart: always
@@ -12,12 +14,12 @@ services:
       MYSQL_USER: db_user
       MYSQL_PASSWORD: password
     
-  server:
-    depends_on:
-      - db
-    image: busybox
+  donor-store:
+    # depends_on:
+    #   - db
+    image: donor-store
     ports:
-      - "8000:80"
+      - "8080:8080"
     restart: always
     environment:
       DB_HOST: db:3306
@@ -26,3 +28,6 @@ services:
       DB_NAME: users_pref
 volumes:
   db_data: {}
+
+networks:
+  donor-network :
