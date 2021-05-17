@@ -1,29 +1,43 @@
 // https://www.codementor.io/@olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
+// https://github.com/bezkoder/nodejs-express-mysql/tree/d8cef0f9dace78d1a78da58611526e6474cb2a52
+// https://bezkoder.com/node-js-rest-api-express-mysql/ 
+// var express = require('express'),
+//   app = express(),
+//   port = process.env.PORT || 8080,
+//   mysql = require('mysql'),
+//   bodyParser = require('body-parser');
 
-var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 8080,
-  mysql = require('mysql'),
-  bodyParser = require('body-parser');
+//   app.use(bodyParser.urlencoded({ extended: true }));
+//   app.use(bodyParser.json());
 
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+// var routes = require('./api/routes/donor-routes'); //importing route
+// routes(app);
 
-var con = mysql.createConnection({
-    host: "db",
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-})
+// app.listen(port);
 
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
+// console.log('donor-store running on: ' + port);
+
+
+
+const express = require("express");
+const bodyParser = require("body-parser");
+
+const app = express();
+
+// parse requests of content-type: application/json
+app.use(bodyParser.json());
+
+// parse requests of content-type: application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "test" });
 });
 
-var routes = require('./api/routes/donor-routes'); //importing route
-routes(app);
+require("./app/routes/donor.routes.js")(app);
 
-app.listen(port);
-
-console.log('donor-store running on: ' + port);
+// set port, listen for requests
+app.listen(8080, () => {
+  console.log("Server is running on port 8080.");
+});

@@ -12,7 +12,7 @@ CREATE TABLE `comments` (
 # TABLE STRUCTURE FOR: donation
 #
 
-CREATE TABLE `donation` (
+CREATE TABLE `donations` (
   `id` int(11) NOT NULL,
   `donor_id` int(9) unsigned NOT NULL,
   `frequency_of_donation` varchar(255) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE `donation` (
 # TABLE STRUCTURE FOR: donor
 #
 
-CREATE TABLE `donor` (
+CREATE TABLE `donors` (
   `id` int(9) unsigned NOT NULL AUTO_INCREMENT,
   `last_name` varchar(100) NOT NULL,
   `first_name` varchar(100) NOT NULL,
