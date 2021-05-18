@@ -20,19 +20,18 @@
 
 
 const express = require("express");
-const bodyParser = require("body-parser");
+const path = require('path');
 
 const app = express();
 
-// parse requests of content-type: application/json
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 
-// parse requests of content-type: application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "test" });
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/www/index.html'));
 });
 
 require("./app/routes/donor.routes.js")(app);

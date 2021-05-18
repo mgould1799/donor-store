@@ -2,15 +2,12 @@ const Donor = require("../models/donor.model.js");
 
 // Create and Save a new Customer
 exports.create = (req, res) => {
-  console.log("logging request")
-  console.log(req)
   // Validate request
-  if (!req.body || req.body.length != 0) {
+  if (!req.body || req.body.length == 0) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
   }
-  console.log(req.body)
   // Create a Customer
   const donor = new Donor({
     last_name: req.body.last_name,
@@ -25,7 +22,6 @@ exports.create = (req, res) => {
     preferred_payment: req.body.preferred_payment, 
     preferred_form_contact: req.body.preferred_form_contact
   });
-  console.log(donor)
 
   // Save donor in the database
   Donor.create(donor, (err, data) => {
