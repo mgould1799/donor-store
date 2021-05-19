@@ -11,6 +11,9 @@ app.use(express.urlencoded({
   extended: true
 }));
 
+app.get('/', function (req, res) {
+  res.send('')
+})
 
 require("./app/routes/donor.routes.js")(app);
 

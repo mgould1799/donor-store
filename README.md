@@ -12,6 +12,20 @@ cd donor-store-gui
 npm install 
 ```
 
+## Tests 
+a file named `run-tests.sh` has been provided to run the unit tests. 
+
+To run the tests run the following 
+
+```
+chmod 777 run-tests.sh 
+source ./run-tests.sh
+```
+
+The source allows for enviroment variables to be set for the db. The db is also spun up using docker. 
+
+At the moment, none of the test cases are passing. 
+
 ## Run 
 
 This can be ran using the docker compose or locally. 
