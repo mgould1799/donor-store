@@ -50,6 +50,10 @@ exports.findAll = (req, res) => {
   });
 };
 
+exports.test = (req, res) => {
+  res.send('test');
+};
+
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {
   

@@ -1,6 +1,9 @@
 module.exports = app => {
   const donors = require("../controllers/donor.controller.js");
 
+  // route for test
+  app.get("/test", donors.create);
+
   // Create a new Donor
   app.post("/donors", donors.create);
 

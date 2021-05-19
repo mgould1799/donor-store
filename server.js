@@ -11,13 +11,9 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-app.get('/', function (req, res) {
-  res.send('')
-})
-
 require("./app/routes/donor.routes.js")(app);
 
 // set port, listen for requests
-app.listen(8080, () => {
+module.exports = app.listen(8080, () => {
   console.log("Server is running on port 8080.");
 });
