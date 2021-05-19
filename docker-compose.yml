@@ -15,8 +15,8 @@ services:
       MYSQL_PASSWORD: password
     
   donor-store:
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
     image: donor-store
     ports:
       - "8080:8080"
@@ -26,6 +26,14 @@ services:
       DB_USER: db_user
       DB_PASSWORD: password
       DB_NAME: users_pref
+  
+  donor-store-gui:
+    depends_on:
+      - donor-store
+    image: donor-store-gui
+    ports:
+      - "8081:8081"
+    restart: always
 volumes:
   db_data: {}
 

@@ -13,6 +13,10 @@ const Donor = function(donor) {
   this.email = donor.email; 
   this.preferred_payment = donor.preferred_payment; 
   this.preferred_form_contact = donor.preferred_form_contact;
+  this.frequency_of_donation = donor.frequency_of_donation;
+  this.amount = donor.amount; 
+  this.currency = donor.currency; 
+  this.comment = donor.comment; 
 };
 
 Donor.create = (newdonor, result) => {
