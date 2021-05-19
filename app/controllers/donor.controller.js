@@ -20,7 +20,11 @@ exports.create = (req, res) => {
     phone_number: req.body.phone_number, 
     email: req.body.phone_number,
     preferred_payment: req.body.preferred_payment, 
-    preferred_form_contact: req.body.preferred_form_contact
+    preferred_form_contact: req.body.preferred_form_contact,
+    frequency_of_donation: req.body.frequency_of_donation,
+    amount: req.body.amount,
+    currency: req.body.currency, 
+    comment: req.body.comment,
   });
 
   // Save donor in the database

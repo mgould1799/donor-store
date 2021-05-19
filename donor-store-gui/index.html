@@ -18,17 +18,26 @@
 <div> 
   <h1>Create a new donor</h1>
   <script type="text/javascript">
-    function createDonor($event){
+    function createDonor(fname, lname){
+      console.log(document.getElementById('donorForm'));
       console.log("in create donor");
-      console.log($event);
+      console.log(fname, lname);
+      const data = new URLSearchParams();
+      for (const pair of new FormData(document.getElementById("donorForm"))) {
+        console.log(pair)  
+        data.append(pair[0], pair[1]);
+      }
+
+      console.log(data)
+
       return false; 
     }
   </script>
-  <form name="donorForm" onSubmit="JavaScript:createDonor()">
+  <form id="donorForm" name="donorForm" onSubmit="return false">
     <label for="fname">First name:</label><br>
     <input type="text" id="fname" name="fname" value="John"><br>
     <label for="lname">Last name:</label><br>
     <input type="text" id="lname" name="lname" value="Doe">
-    <input type="submit" value="Submit">
+    <button id="form_send" tabindex="5" class="btn" type="submit" onClick="return createDonor(fname.value, lname.value)">Submit</button>
   </form>
 </div>
