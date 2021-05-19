@@ -38,16 +38,16 @@ Once the MySQL db is up, you can run the API with npm start from the root of the
 
 ## Design
 
-# MySQL
+### MySQL
 For quickness, a single table was created to allow for this application to be created quickly that holds all information about a donor. Ideally, we would like to split the Donor database into at least three tables to allow for seperation of data and normalization. 
 
 The quick schema can be found in `donor.sql`. An example of how the schema might look for normalization is in the file `would-like-to-donor.sql`. 
 
-# API 
+### API 
 
 The API sits at the route of the project. NodeJS was chose to get things up and running quickly. Simple CRUD operations were created. The `app` folder contains the different structures to support api routes, models, controllers, and more. 
 
 
-# donor-store-gui (Frontend)
+### donor-store-gui (Frontend)
 
 A seperate server was used to host the client application. This way to seperate the client and server. The main HTML page is unfinished at the moment and only does a simple call that prints out to the console the number of donors that exists within the database at the time. 
