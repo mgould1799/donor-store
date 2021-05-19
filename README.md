@@ -30,7 +30,7 @@ cd ..
 docker-compose up
 ```
 
-A  `run.sh` file is also provided to run the application with docker-compose 
+A  `run.sh` file is also provided to run the application with docker-compose. Run `chmod 777 run.sh` to give the file executable permissions on your system.  
 
 For local set up, a MYSQL database with enviroment variables will need to be set up. 
 Once the MySQL db is up, you can run the API with npm start from the root of the directory. To get the frontend to run, `cd donor-store-gui`, and run `npm start`. 
